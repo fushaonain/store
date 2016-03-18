@@ -11,6 +11,5 @@
     <title>欢迎进入</title>
   </head>
   <body>
-  $END$
   </body>
 </html>
