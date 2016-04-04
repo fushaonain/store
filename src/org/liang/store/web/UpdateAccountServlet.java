@@ -2,6 +2,7 @@ package org.liang.store.web;
 
 import org.liang.store.bean.Account;
 import org.liang.store.bean.sign;
+import org.liang.store.service.AccountService;
 import org.liang.store.service.RegisterService;
 
 import javax.servlet.ServletException;
@@ -11,11 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by liangx on 2016-03-24.
+ * Created by liangx on 2016-04-03.
  */
-public class SaveAccountServlet extends HttpServlet {
+public class UpdateAccountServlet extends HttpServlet {
     private static final String MAIN = "/WEB-INF/jsp/catalog/Main.jsp";
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -49,11 +49,10 @@ public class SaveAccountServlet extends HttpServlet {
         Account account = new Account(username,password,firstName,lastName,email,
                 address1,address2,city,state,zip,country,phone,languagePreference,
                 favouriteCategoryId,one,two);
-        RegisterService registerService = new RegisterService();
+        AccountService accountService = new AccountService();
         sign signNow = new sign(username,password);
-        registerService.register(account,signNow);
+        accountService.update(account,signNow);
         request.getRequestDispatcher(MAIN).forward(request,response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

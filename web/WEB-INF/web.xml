@@ -58,9 +58,41 @@
         <servlet-name>SaveAccountServlet</servlet-name>
         <servlet-class>org.liang.store.web.SaveAccountServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignOutServlet</servlet-name>
+        <servlet-class>org.liang.store.web.SignOutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ToMyAccountServlet</servlet-name>
+        <servlet-class>org.liang.store.web.ToMyAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <servlet-class>org.liang.store.web.UpdateAccountServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ToCheckOutServlet</servlet-name>
+        <servlet-class>org.liang.store.web.ToCheckOutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ToCheckOutServlet</servlet-name>
+        <url-pattern>/toCheckOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <url-pattern>/updateAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ToMyAccountServlet</servlet-name>
+        <url-pattern>/ToMyAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOutServlet</servlet-name>
+        <url-pattern>/signOut</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SaveAccountServlet</servlet-name>
-        <url-pattern>/saveAccountServlet</url-pattern>
+        <url-pattern>/saveAccount</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ToRegisterServlet</servlet-name>

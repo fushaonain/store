@@ -14,9 +14,9 @@ import java.sql.ResultSet;
  */
 public class RegisterDAOImpl implements RegisterDAO {
 
-    private static final String INSERTSIGNON = "insert into signon(username,password) values (?,?)";
-    private static final String INSERTACCOUNT = "insert into account(userid,email,firstname,lastname,status,addr1,addr2,city,state,zip,country,phone) values (?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String INSERTPROFILE = "insert into profile(userid,langpref,favcategory,mylistopt,banneropt) values (?, ?, ?, ? ,?)";
+    private static final String INSERTSIGNON = "INSERT INTO SIGNON (USERNAME,PASSWORD) VALUES (?, ?)";
+    private static final String INSERTACCOUNT = "INSERT INTO ACCOUNT (userid,email,firstname,lastname,status,addr1,addr2,city,state,zip,country,phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String INSERTPROFILE = "INSERT INTO PROFILE (userid,langpref,favcategory,mylistopt,banneropt) VALUES (?, ?, ?, ? ,?)";
     @Override
     public void ResertSignon(sign signNow) {
         try{
@@ -26,9 +26,9 @@ public class RegisterDAOImpl implements RegisterDAO {
             preparedStatement.setString(1,signNow.getUsername());
             preparedStatement.setString(2,signNow.getPassword());
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            boolean resultSet = preparedStatement.execute();
 
-            DBUtil.closeResultSet(resultSet);
+            //DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (Exception e) {
@@ -55,9 +55,9 @@ public class RegisterDAOImpl implements RegisterDAO {
             preparedStatement.setString(11,account.getCountry());
             preparedStatement.setString(12,account.getPhone());
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            boolean resultSet = preparedStatement.execute();
 
-            DBUtil.closeResultSet(resultSet);
+            //DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         }catch (Exception e){
@@ -75,12 +75,20 @@ public class RegisterDAOImpl implements RegisterDAO {
             preparedStatement.setString(1,account.getUsername());
             preparedStatement.setString(2,account.getLanguagePreference());
             preparedStatement.setString(3,account.getFavouriteCategoryId());
-            preparedStatement.setString(4, String.valueOf(account.isListOption()));
-            preparedStatement.setString(5, String.valueOf(account.isBannerOption()));
+            if(account.isListOption()){
+                preparedStatement.setString(4,"1");
+            }else {
+                preparedStatement.setString(4,"0");
+            }
+            if(account.isBannerOption()){
+                preparedStatement.setString(5,"1");
+            }else {
+                preparedStatement.setString(5,"0");
+            }
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            boolean resultSet = preparedStatement.execute();
 
-            DBUtil.closeResultSet(resultSet);
+            //DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
 

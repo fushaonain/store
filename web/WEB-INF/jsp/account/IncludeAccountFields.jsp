@@ -58,6 +58,8 @@
         <td><select name="languagePreference">
             <!-- 循环 -->
             <option>${language }</option>
+            <option value="ENGLISH">english</option>
+            <option selected="selected" value="CHINESE">chinese</option>
 
         </select></td>
     </tr>

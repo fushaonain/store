@@ -41,14 +41,31 @@
             <a href="viewCart"><img align="middle" name="img_cart" src="images/cart.gif" />
             </a>
             <img align="middle" src="images/separator.gif" />
-            <a href="signonForm">Sign In</a>
+
+            <c:if test="${sessionScope.accountBean == null}">
+                <a href="signonForm">Sign In</a>
+            </c:if>
+            <c:if test="${sessionScope.accountBean != null}">
+                <c:if test="${sessionScope.authenticated == false}">
+                    <a href="signonForm">Sign In</a>
+                </c:if>
+            </c:if>
+            <c:if test="${sessionScope.accountBean != null}">
+                <c:if test="${sessionScope.authenticated == true}">
+                    <a href="signOut">Sign Out</a>
+                    <img align="middle" src="images/separator.gif" />
+                    <a href="ToMyAccount">My Account</a>
+                </c:if>
+            </c:if>
+            <!--<img align="middle" src="images/separator.gif" />
             <a href="#">Sign Out</a>
             <img align="middle" src="images/separator.gif" />
             <a href="#">My Account</a>
             <img align="middle" src="images/separator.gif" />
-            <a href="/help.html">?</a>
+            <a href="/store/help.html">?</a>-->
         </div>
     </div>
+
 
     <div id="Search">
         <div id="SearchContent">

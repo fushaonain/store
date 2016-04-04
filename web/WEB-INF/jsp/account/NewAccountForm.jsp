@@ -56,7 +56,7 @@
 
 <div id="Catalog">
 
-    <form action="saveAccountServlet" method="post" name="userInfo" id="userInfo">
+    <form action="saveAccount" method="post" name="userInfo" id="userInfo">
 
         <h3>User Information</h3>
 

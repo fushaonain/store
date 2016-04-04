@@ -68,7 +68,7 @@
 	</form>
 
 		<c:if test="${sessionScope.cart.numberOfItems > 0}">
-			<a href="#" class="Button">Proceed to Checkout</a>
+			<a href="toCheckOut" class="Button">Proceed to Checkout</a>
 		</c:if>
 </div>
 
