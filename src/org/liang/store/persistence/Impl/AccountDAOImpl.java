@@ -48,4 +48,39 @@ public class AccountDAOImpl implements AccountDAO {
         }
         return account;
     }
+
+    /*@Override
+    public Account usernameIsExist(String username) {
+        Account account = new Account();
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(getAccountById);
+
+            preparedStatement.setString(1,username);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next())
+            {
+                account.setEmail(resultSet.getString(2));
+                account.setFirstName(resultSet.getString(3));
+                account.setLastName(resultSet.getString(4));
+                account.setStatus(resultSet.getString(5));
+                account.setAddress1(resultSet.getString(6));
+                account.setAddress2(resultSet.getString(7));
+                account.setCity(resultSet.getString(8));
+                account.setState(resultSet.getString(9));
+                account.setZip(resultSet.getString(10));
+                account.setCountry(resultSet.getString(11));
+                account.setPhone(resultSet.getString(12));
+            }
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return account;
+    }*/
 }

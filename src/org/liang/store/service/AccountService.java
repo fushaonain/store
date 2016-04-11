@@ -31,4 +31,10 @@ public class AccountService {
         updateAccountDAO.updateProfilr(account);
         updateAccountDAO.updateSignon(sign_now);
     }
+
+    public Account selectAccountBYUserId(String userId){
+        Account account = accountDAO.getAccountBy(userId);
+        return account;
+
+    }
 }

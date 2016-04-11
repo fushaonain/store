@@ -25,7 +25,7 @@ public class SearchProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        keyword = request.getParameter("keyword");
+        keyword = request.getParameter("search-text");
 
         CatalogService service = new CatalogService();
         List<Product> productList = service.searchProductList(keyword);

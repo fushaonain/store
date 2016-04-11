@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -24,6 +25,21 @@
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="Pragma" content="no-cache" />
+
+
+    <link href="js/jquery-ui.css">
+    <!--调用jquery-->
+    <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function(){
+        $("#language").autocomplete({
+            source: ["Chinese", "English", "Spanish", "Russian", "French", "Japanese", "Korean", "German"]
+        });
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -57,21 +73,15 @@
                     <a href="ToMyAccount">My Account</a>
                 </c:if>
             </c:if>
-            <!--<img align="middle" src="images/separator.gif" />
-            <a href="#">Sign Out</a>
-            <img align="middle" src="images/separator.gif" />
-            <a href="#">My Account</a>
-            <img align="middle" src="images/separator.gif" />
-            <a href="/store/help.html">?</a>-->
         </div>
     </div>
 
 
-    <div id="Search">
+    <div id="search">
         <div id="SearchContent">
             <form action="search" method="post">
-                <input type="text" name="keyword" size="14" /> <input type="submit"
-                                                                      name="searchProducts" value="Search" />
+                <input id="language" name="language" type="text"  />
+                <input type="button" id="submit" value="Search"/>
             </form>
         </div>
     </div>

@@ -8,4 +8,5 @@ import org.liang.store.bean.sign;
 public interface Signon {
 
     sign ifSignon(sign sign);
+    String ifExistUsername(String username);
 }

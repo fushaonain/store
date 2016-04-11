@@ -13,6 +13,7 @@ import java.sql.ResultSet;
  */
 public class ifSignonImpl implements Signon {
 
+    private static final String IFselectSQL = "select * from signon where username = ?";
     private static final String selectSQL = "select * from signon where username = ? and password = ?";
     @Override
     public sign ifSignon(sign sign) {
@@ -29,6 +30,30 @@ public class ifSignonImpl implements Signon {
 
             if (resultSet.next()){
                 result = sign;
+            }
+
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String ifExistUsername(String username) {
+        String result = null;
+
+        try{
+            Connection connection = DBUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(IFselectSQL);
+
+            preparedStatement.setString(1, username);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                result = "1";
             }
 
             DBUtil.closeResultSet(resultSet);

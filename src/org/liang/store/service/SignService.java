@@ -23,6 +23,14 @@ public class SignService {
             return false;
         }
     }
+    public boolean ifExist(String username){
+        if(signon.ifExistUsername(username) != null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
 }

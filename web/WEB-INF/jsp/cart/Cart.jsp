@@ -68,8 +68,24 @@
 	</form>
 
 		<c:if test="${sessionScope.cart.numberOfItems > 0}">
-			<a href="toCheckOut" class="Button">Proceed to Checkout</a>
+			<c:if test="${sessionScope.accountBean == null}">
+				<a href="signonForm" class="Button">Proceed to Checkout</a>
+			</c:if>
 		</c:if>
+	<c:if test="${sessionScope.cart.numberOfItems > 0}">
+		<c:if test="${sessionScope.accountBean != null}">
+			<c:if test="${sessionScope.authenticated == false}">
+				<a href="signonForm" class="Button">Proceed to Checkout</a>
+			</c:if>
+		</c:if>
+	</c:if>
+	<c:if test="${sessionScope.cart.numberOfItems > 0}">
+		<c:if test="${sessionScope.accountBean != null}">
+			<c:if test="${sessionScope.authenticated == true}">
+				<a href="toCheckOut" class="Button">Proceed to Checkout</a>
+			</c:if>
+		</c:if>
+	</c:if>
 </div>
 
 <div id="Separator">&nbsp;</div>

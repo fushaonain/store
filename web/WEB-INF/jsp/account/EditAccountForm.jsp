@@ -53,7 +53,7 @@
                    type="submit">
 
         </form>
-        <a href="../order/ListOrders.html">My Orders</a>
+        <a href="viewOrder">My Orders</a>
 
     </div>
 <%@ include file="../common/IncludeBottom.jsp"%>

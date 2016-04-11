@@ -8,5 +8,5 @@ import org.liang.store.bean.Account;
 public interface AccountDAO {
 
     Account getAccountBy(String userId);
-
+    //Account usernameIsExist(String username);
 }

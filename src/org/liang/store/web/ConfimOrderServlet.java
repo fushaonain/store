@@ -1,31 +1,30 @@
 package org.liang.store.web;
 
-import org.liang.store.bean.Account;
-import org.liang.store.service.AccountService;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
- * Created by liangx on 2016-04-03.
+ * Created by liangx on 2016-04-04.
  */
-public class ToCheckOutServlet extends HttpServlet {
-    private static final String CHECKOUT = "/WEB-INF/jsp/order/NewOrderForm.jsp";
-    private Account account;
-    private AccountService accountService = new AccountService();
+public class ConfimOrderServlet extends HttpServlet {
+    private static final String CONFIRM = "/WEB-INF/jsp/order/ConfirmOrder.jsp";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date = df.format(new Date());
+
         HttpSession session = request.getSession();
-        String username = (String) session.getAttribute("userName");
+        String userId = (String) session.getAttribute("userName");
 
-        account = accountService.selectAccountBYUserId(username);
 
-        session.setAttribute("account",account);
-        request.getRequestDispatcher(CHECKOUT).forward(request,response);
 
+        request.getRequestDispatcher(CONFIRM).forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
