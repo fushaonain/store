@@ -22,42 +22,43 @@
 				<th>&nbsp;</th>
 			</tr>
 
-			<c:if test="${sessionScope.cart.numberOfItems == 0}">
+			<s:if test="cart.numberOfItems == 0">
 				<tr>
 					<td colspan="8"><b>Your cart is empty.</b></td>
 				</tr>
-			</c:if>
+			</s:if>
 
-			<c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
+			<s:iterator value="cart.cartItems">
 				<tr>
 					<td>
-						<a href="viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
+						<a href="viewItem?itemId=<s:property value="item.itemId"/>"><s:property value="item.itemId"/> </a>
 					</td>
 					<td>
-						${cartItem.item.product.productId}
+						<s:property value="item.product.productId"/>
 					</td>
 					<td>
-						${cartItem.item.attribute1} ${cartItem.item.attribute2}
-						${cartItem.item.attribute3} ${cartItem.item.attribute4}
-						${cartItem.item.attribute5} ${cartItem.item.product.name}
+						<s:property value="item.attribute1"/><s:property value="item.attribute2"/>
+						<s:property value="item.attribute3"/><s:property value="item.attribute4"/>
+						<s:property value="item.attribute5"/><s:property value="item.product.name"/>
 					</td>
 					<td>
-						${cartItem.inStock}
+						<s:property value="inStock"/>
 					</td>
 					<td>
-						<input type="text" name="${cartItem.item.itemId}" value="${cartItem.quantity}" />
+						<s:textfield value="%{quantity}" theme="simple" label="itemId"/>
+						<%--<s:property value="quantity"/>--%>
 					</td>
 					<td>
-						<fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" />
+						<s:property value="item.listPrice"/>
 					</td>
 					<td>
-						<fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00" />
+						<s:property value="total"/>
 					</td>
 					<td>
-						<a href="removeItemFromCart?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
+						<a href="removeItemFromCart?workingItemId=<s:property value="item.itemId"/>" class="Button">Remove</a>
 					</td>
 				</tr>
-			</c:forEach>
+			</s:iterator>
 			<tr>
 				<td colspan="7">
 					<input type="submit" value="Update Cart"/>
@@ -67,25 +68,25 @@
 		</table>
 	</form>
 
-		<c:if test="${sessionScope.cart.numberOfItems > 0}">
+		<s:if test="cart.numberOfItems > 0">
 			<c:if test="${sessionScope.accountBean == null}">
-				<a href="signonForm" class="Button">Proceed to Checkout</a>
+				<a href="loginForm" class="Button">Proceed to Checkout</a>
 			</c:if>
-		</c:if>
-	<c:if test="${sessionScope.cart.numberOfItems > 0}">
+		</s:if>
+	<s:if test="cart.numberOfItems > 0">
 		<c:if test="${sessionScope.accountBean != null}">
 			<c:if test="${sessionScope.authenticated == false}">
-				<a href="signonForm" class="Button">Proceed to Checkout</a>
+				<a href="loginForm" class="Button">Proceed to Checkout</a>
 			</c:if>
 		</c:if>
-	</c:if>
-	<c:if test="${sessionScope.cart.numberOfItems > 0}">
+	</s:if>
+	<s:if test="cart.numberOfItems > 0">
 		<c:if test="${sessionScope.accountBean != null}">
 			<c:if test="${sessionScope.authenticated == true}">
 				<a href="toCheckOut" class="Button">Proceed to Checkout</a>
 			</c:if>
 		</c:if>
-	</c:if>
+	</s:if>
 </div>
 
 <div id="Separator">&nbsp;</div>

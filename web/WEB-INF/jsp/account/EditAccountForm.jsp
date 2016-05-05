@@ -20,7 +20,7 @@
                 <tr>
                     <td>User ID:</td>
                     <td>
-                        <input type="text" name="username" readonly= "true" value="${sessionScope.userName}" id="username" onblur="usernameIsExist();"/>
+                        <input type="text" name="username" readonly= "true" value="<s:property value="username"/>" id="username" onblur="usernameIsExist();"/>
                         <div id="usernameInfo"></div>
                     </td>
                 </tr>
@@ -53,7 +53,7 @@
                    type="submit">
 
         </form>
-        <a href="viewOrder">My Orders</a>
+        <a href="listOrder">My Orders</a>
 
     </div>
 <%@ include file="../common/IncludeBottom.jsp"%>

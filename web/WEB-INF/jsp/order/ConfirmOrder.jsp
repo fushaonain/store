@@ -27,70 +27,70 @@
             </tr>
             <tr>
                 <td>First name:</td>
-                <td>${sessionScope.account.firstName}</td>
+                <td><s:property value="account.firstName"/></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td>${sessionScope.account.lastName}</td>
+                <td><s:property value="account.lastName"/></td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td>${sessionScope.account.address1}</td>
+                <td><s:property value="account.address1"/></td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td>${sessionScope.account.address2}</td>
+                <td><s:property value="account.address2"/></td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td>${sessionScope.account.city}</td>
+                <td><s:property value="account.city"/></td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td>${sessionScope.account.state}</td>
+                <td><s:property value="account.state"/></td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td>${sessionScope.account.zip}</td>
+                <td><s:property value="account.zip"/></td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td>${sessionScope.account.country}</td>
+                <td><s:property value="account.country"/></td>
             </tr>
             <tr>
                 <th colspan="2">Shipping Address</th>
             </tr>
             <tr>
                 <td>First name:</td>
-                <td>${sessionScope.account.firstName}</td>
+                <td><s:property value="account.firstName"/></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td>${sessionScope.account.lastName}</td>
+                <td><s:property value="account.lastName"/></td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td>${sessionScope.account.address1}</td>
+                <td><s:property value="account.address1"/></td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td>${sessionScope.account.address2}</td>
+                <td><s:property value="account.address2"/></td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td>${sessionScope.account.city}</td>
+                <td><s:property value="account.city"/></td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td>${sessionScope.account.state}</td>
+                <td><s:property value="account.state"/></td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td>${sessionScope.account.zip}</td>
+                <td><s:property value="account.zip"/></td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td>${sessionScope.account.country}</td>
+                <td><s:property value="account.country"/></td>
             </tr>
             </tbody>
         </table>

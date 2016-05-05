@@ -15,13 +15,13 @@
 
 
 <div id="Catalog">
-    <form action="ifSignon" method="post">
+    <form action="login" method="post">
         <p>Please enter your username and password.</p>
         </p>
         <p style="color: red">${requestScope.error}</p>
         <p>
-            Username:<input type="text" name="username" /><br /> Password:<input
-                type="password" name="password" /><br />
+            Username:<input type="text" name="username" /><br/>
+            Password:<input type="password" name="password" /><br/>
             <!--  Validation Code:<input type="text" name="validationCode"/>
     <img src="validation" id="imgservlet" onclick="reloadImage()"/>
     -->

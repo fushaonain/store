@@ -9,6 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -59,11 +60,11 @@
             <img align="middle" src="images/separator.gif" />
 
             <c:if test="${sessionScope.accountBean == null}">
-                <a href="signonForm">Sign In</a>
+                <a href="loginForm">Sign In</a>
             </c:if>
             <c:if test="${sessionScope.accountBean != null}">
                 <c:if test="${sessionScope.authenticated == false}">
-                    <a href="signonForm">Sign In</a>
+                    <a href="loginForm">Sign In</a>
                 </c:if>
             </c:if>
             <c:if test="${sessionScope.accountBean != null}">
@@ -79,10 +80,13 @@
 
     <div id="search">
         <div id="SearchContent">
-            <form action="search" method="post">
-                <input id="language" name="language" type="text"  />
-                <input type="button" id="submit" value="Search"/>
-            </form>
+            <s:form action="search" method="post">
+                <tr>
+                    <td><s:textfield name="keyword" theme="simple"/></td>
+                        <%--<input type="button" id="submit" value="Search"/>--%>
+                    <td> <s:submit theme="simple" value="Search"></s:submit></td>
+                </tr>
+            </s:form>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 package org.liang.store.persistence.Impl;
 
 import org.liang.store.bean.Account;
-import org.liang.store.bean.sign;
+import org.liang.store.bean.Sign;
 import org.liang.store.persistence.DBUtil;
 import org.liang.store.persistence.UpdateAccountDAO;
 
@@ -59,7 +59,7 @@ public class UpdateAccountDAOImpl implements UpdateAccountDAO {
     }
 
     @Override
-    public void updateSignon(sign sign_now) {
+    public void updateSignon(Sign sign_now) {
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATESIGNON);

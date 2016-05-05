@@ -1,7 +1,7 @@
 package org.liang.store.service;
 
 import org.liang.store.bean.Account;
-import org.liang.store.bean.sign;
+import org.liang.store.bean.Sign;
 import org.liang.store.persistence.AccountDAO;
 import org.liang.store.persistence.Impl.AccountDAOImpl;
 import org.liang.store.persistence.Impl.UpdateAccountDAOImpl;
@@ -26,7 +26,7 @@ public class AccountService {
             return true;
         }
     }
-    public void update(Account account,sign sign_now){
+    public void update(Account account,Sign sign_now){
         updateAccountDAO.updateAccount(account);
         updateAccountDAO.updateProfilr(account);
         updateAccountDAO.updateSignon(sign_now);

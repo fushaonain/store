@@ -1,13 +1,12 @@
 package org.liang.store.persistence.Impl;
 
 import org.liang.store.bean.Account;
-import org.liang.store.bean.sign;
+import org.liang.store.bean.Sign;
 import org.liang.store.persistence.DBUtil;
 import org.liang.store.persistence.RegisterDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 /**
  * Created by liangx on 2016-03-24.
@@ -18,7 +17,7 @@ public class RegisterDAOImpl implements RegisterDAO {
     private static final String INSERTACCOUNT = "INSERT INTO ACCOUNT (userid,email,firstname,lastname,status,addr1,addr2,city,state,zip,country,phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERTPROFILE = "INSERT INTO PROFILE (userid,langpref,favcategory,mylistopt,banneropt) VALUES (?, ?, ?, ? ,?)";
     @Override
-    public void ResertSignon(sign signNow) {
+    public void ResertSignon(Sign signNow) {
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTSIGNON);

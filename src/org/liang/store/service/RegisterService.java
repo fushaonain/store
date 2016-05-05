@@ -1,7 +1,7 @@
 package org.liang.store.service;
 
 import org.liang.store.bean.Account;
-import org.liang.store.bean.sign;
+import org.liang.store.bean.Sign;
 import org.liang.store.persistence.Impl.RegisterDAOImpl;
 import org.liang.store.persistence.RegisterDAO;
 
@@ -16,7 +16,7 @@ public class RegisterService {
         this.registerDAO = new RegisterDAOImpl();
     }
 
-    public void register(Account account,sign sign_now){
+    public void register(Account account,Sign sign_now){
         registerDAO.ResertSignon(sign_now);
         registerDAO.ResertAccount(account);
         registerDAO.ResertProfile(account);

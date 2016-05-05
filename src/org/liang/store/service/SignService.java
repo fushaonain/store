@@ -1,6 +1,6 @@
 package org.liang.store.service;
 
-import org.liang.store.bean.sign;
+import org.liang.store.bean.Sign;
 import org.liang.store.persistence.Impl.ifSignonImpl;
 import org.liang.store.persistence.Signon;
 
@@ -15,7 +15,7 @@ public class SignService {
         signon = new ifSignonImpl();
     }
 
-    public boolean login(sign sign){
+    public boolean login(Sign sign){
         if(signon.ifSignon(sign) != null){
             return true;
         }

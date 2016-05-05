@@ -82,4 +82,7 @@ public class Cart implements Serializable {
     return subTotal;
   }
 
+  public void clearCart(){
+    itemList.clear();
+  }
 }

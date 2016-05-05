@@ -3,12 +3,12 @@ package org.liang.store.bean;
 /**
  * Created by liangx on 2016-03-23.
  */
-public class sign {
+public class Sign {
 
     private String username;
     private String password;
 
-    public sign(String username, String password) {
+    public Sign(String username, String password) {
         this.username = username;
         this.password = password;
     }

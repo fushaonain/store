@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+        <action name="login" class="org.liang.store.web.SignAction" method="login">
+            <result name="input">/WEB-INF/jsp/account/SignonForm.jsp</result>
+            <result name="success">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+        <action name="loginForm" class="org.liang.store.web.SignAction">
+            <result name="input">/WEB-INF/jsp/account/SignonForm.jsp</result>
+        </action>
+        <action name="main" class="org.liang.store.web.MainAction">
+            <result name="main">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+        <action name="viewCategory" class="org.liang.store.web.MainAction" method="viewCategory">
+            <result name="success">/WEB-INF/jsp/catalog/Category.jsp</result>
+        </action>
+        <action name="viewProduct" class="org.liang.store.web.MainAction" method="viewProduct">
+            <result name="success">/WEB-INF/jsp/catalog/Product.jsp</result>
+        </action>
+        <action name="viewItem" class="org.liang.store.web.MainAction" method="viewItem">
+            <result name="success">/WEB-INF/jsp/catalog/Item.jsp</result>
+        </action>
+        <action name="addItemToCart" class="org.liang.store.web.MainAction" method="addItemToCart">
+            <result name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+        </action>
+        <action name="viewCart" class="org.liang.store.web.CartAction">
+            <result name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+        </action>
+        <action name="removeItemFromCart" class="org.liang.store.web.CartAction" method="removeItemFromCart">
+            <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+        </action>
+        <action name="updateCartQuantities" class="org.liang.store.web.CartAction" method="updateCartQuantities">
+            <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+        </action>
+        <action name="signOut" class="org.liang.store.web.SignAction" method="signOut">
+            <result name="success">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+        <action name="ToMyAccount" class="org.liang.store.web.AccountAction">
+            <result name="success">/WEB-INF/jsp/account/EditAccountForm.jsp</result>
+        </action>
+        <action name="updateAccount" class="org.liang.store.web.AccountAction" method="updateAccount">
+            <result name="success">/WEB-INF/jsp/catalog/Main.jsp</result>
+        </action>
+        <action name="toCheckOut" class="org.liang.store.web.AccountAction" method="toCheckOut">
+            <result name="success">/WEB-INF/jsp/order/NewOrderForm.jsp</result>
+        </action>
+        <action name="confimOrder" class="org.liang.store.web.AccountAction" method="confimOrder">
+            <result name="success">/WEB-INF/jsp/order/ConfirmOrder.jsp</result>
+        </action>
+        <action name="viewOrder" class="org.liang.store.web.OrderAction">
+            <result name="success">/WEB-INF/jsp/order/ViewOrder.jsp</result>
+        </action>
+        <action name="listOrder" class="org.liang.store.web.OrderAction" method="listOrder">
+            <result name="success">/WEB-INF/jsp/order/ListOrders.jsp</result>
+        </action>
+        <action name="viewExistOrder" class="org.liang.store.web.OrderAction" method="viewExistOrder">
+            <result name="success">/WEB-INF/jsp/order/ViewOrder.jsp</result>
+        </action>
+        <action name="search" class="org.liang.store.web.MainAction" method="search">
+            <result name="success">/WEB-INF/jsp/catalog/SearchProducts.jsp</result>
+        </action>
+    </package>
+
+    <include file="example.xml"/>
+
+    <!-- Add packages here -->
+
+</struts>

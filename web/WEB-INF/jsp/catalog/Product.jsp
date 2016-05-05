@@ -16,7 +16,7 @@
 		<th>List Price</th>
 		<th>&nbsp;</th>
 	</tr>
-	<c:forEach var="item" items="${sessionScope.itemList}">
+	<%--<c:forEach var="item" items="${sessionScope.itemList}">
 		<tr>
 			<td>
                 <a href="viewItem?itemId=${item.itemId}">${item.itemId}</a>
@@ -34,7 +34,26 @@
                 <a class="Button" href="addItemToCart?workingItemId=${item.itemId}">Add to Cart</a>
             </td>
 		</tr>
-	</c:forEach>
+	</c:forEach>--%>
+	<s:iterator value="itemList">
+		<tr>
+			<td>
+				<a href="viewItem?itemId=<s:property value="itemId"/>"><s:property value="itemId"/></a>
+			</td>
+					<s:property value="productId"/>
+			</td>
+			<td>
+					<s:property value="attribute1"/><s:property value="attribute2"/><s:property value="attribute3"/>
+					<s:property value="attribute4"/><s:property value="attribute5"/><s:property value="#product.name"/>
+			</td>
+			<td>
+				<s:property value="listPrice"/>
+			</td>
+			<td>
+				<a class="Button" href="addItemToCart?workingItemId=<s:property value="itemId"/>">Add to Cart</a>
+			</td>
+		</tr>
+	</s:iterator>
 	<tr>
 		<td>
 		</td>

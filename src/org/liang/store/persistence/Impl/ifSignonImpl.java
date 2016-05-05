@@ -1,6 +1,6 @@
 package org.liang.store.persistence.Impl;
 
-import org.liang.store.bean.sign;
+import org.liang.store.bean.Sign;
 import org.liang.store.persistence.DBUtil;
 import org.liang.store.persistence.Signon;
 
@@ -16,8 +16,8 @@ public class ifSignonImpl implements Signon {
     private static final String IFselectSQL = "select * from signon where username = ?";
     private static final String selectSQL = "select * from signon where username = ? and password = ?";
     @Override
-    public sign ifSignon(sign sign) {
-        sign result = null;
+    public Sign ifSignon(Sign sign) {
+        Sign result = null;
 
         try{
             Connection connection = DBUtil.getConnection();
